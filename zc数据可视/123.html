@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我国耕地面积</title>   
+    <style>
+      .box{
+            width: 500px;
+            height: 400px;
+            background-color: aqua;
+        }
+        .box1{
+            width: 500px;
+            height: 400px;
+            background-color: rgb(232, 162, 119);
+            top: 0 px;
+            left: 600px;
+        }
+    </style>
+    <script src="js/echarts.min.js"></script>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+     var myChart = echarts.init(document.querySelector('.box'));
+     var option = {
+  tooltip: {
+   trigger: 'item'
+  },
+  title: {
+    left: 'center',
+    text: '我国土地使用情况分类'
+  },
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  legend: {
+    top: '5%',
+    left: 'center'
+  },
+  series: [
+    {
+      name: '单位：亿亩',
+      type: 'pie',
+      radius: ['40%', '70%'],
+	  avoidLabelOverlap: false,
+	  itemStyle: {
+        borderRadius: 10,
+        borderColor: '#fff',
+		borderWidth: 2
+	},
+	 label: {
+        show: false,
+		position: 'center'
+     },
+     emphasis: {
+     label: {
+          show: true,
+          fontSize: '40',
+          fontWeight: 'bold'
+         }
+      },
+        labelLine: {
+        show: false
+ },
+ data: [
+        { value: 39.91, name: '牧草地' },
+        { value: 34.14, name: '林地' },
+        { value: 19.51, name: '耕地' },
+        { value: 3.61, name: '居民用地矿地' },
+        { value: 1.5, name: '园地' },
+        { value: 0.82, name: '交通用地' }
+
+      ]
+    }
+  ]
+};
+    myChart.setOption(option);
+    </script>
+    <div class="box1"></div>
+    
+     <script>
+      
+      var myChart = echarts.init(document.querySelector('.box1'));
+      var option = {
+  xAxis: {
+    type: 'category',
+    data: ['中部', '西部', '东部']
+  },  
+  toolbox: {
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  title: {
+    left: 'center',
+    text: '中、东、西部耕地面积情况'
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    
+    {
+      data: [5611.89,3696.45, 3695.59],
+      type: 'bar',
+      showBackground: true,
+      backgroundStyle: {
+        color: 'rgba(180, 180, 180, 0.2)'
+      }
+    }
+  ]
+};
+
+     myChart.setOption(option);
+     </script>
+  </body>
+  
+</html>
